@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-white;
+    font-family: "Montserrat", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .wedding-bg {
+    @apply min-h-screen bg-cover bg-center bg-no-repeat;
+    background-image: var(--wedding-bg-url);
+  }
+
+  @media (min-width: 768px) {
+    .wedding-bg {
+      background-attachment: fixed;
+    }
+  }
+
+  .wedding-overlay {
+    @apply fixed inset-0 pointer-events-none z-0;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 15, 25, 0.55) 0%,
+      rgba(20, 10, 18, 0.42) 45%,
+      rgba(25, 12, 20, 0.58) 100%
+    );
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/10 shadow-glass;
+    background: rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+  }
+
+  .shimmer-card {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    animation: shimmer 7s linear infinite;
+  }
+
+  .title-glow {
+    text-shadow:
+      0 2px 24px rgba(255, 182, 193, 0.45),
+      0 0 60px rgba(255, 145, 164, 0.2);
+  }
+
+  .countdown-box {
+    @apply rounded-xl px-3 py-2 min-w-[60px] md:min-w-[65px] shadow-lg border border-pink-200/40;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 240, 245, 0.92));
+  }
+
+  .hero-glow {
+    @apply absolute inset-0 m-auto w-[70%] aspect-square rounded-full z-0 pointer-events-none;
+    background: conic-gradient(from 0deg, #ffb7c5, #ff91a4, #ffd1dc, #ffb7c5);
+    filter: blur(40px);
+    opacity: 0.22;
+    animation: glow-spin 24s linear infinite;
+  }
+
+  .sakura-layer {
+    @apply fixed inset-0 pointer-events-none z-30 overflow-hidden;
+  }
+
+  .sakura-petal {
+    position: absolute;
+    top: -2rem;
+    border-radius: 50% 10% 50% 10%;
+    opacity: 0.75;
+    will-change: transform;
+    animation: sakura-fall linear infinite;
+  }
+
+  .music-spin {
+    animation: music-spin 5s linear infinite;
+  }
+
+  .amp-pulse {
+    display: inline-block;
+    animation: amp-pulse 1.8s ease-in-out infinite;
+  }
+
+  .save-date-pulse {
+    animation: soft-pulse 2.5s ease-in-out infinite;
+  }
+
+  .scroll-hint {
+    animation: scroll-bob 1.5s ease-in-out infinite;
+  }
+
+  .section-below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  40%,
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(var(--swing, 0px), 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes music-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes amp-pulse {
+  0%,
+  100% {
+    transform: scale(1) rotate(-4deg);
+  }
+  50% {
+    transform: scale(1.12) rotate(4deg);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sakura-petal,
+  .hero-glow,
+  .shimmer-card::before,
+  .music-spin,
+  .amp-pulse,
+  .save-date-pulse,
+  .scroll-hint {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
