@@ -29,7 +29,13 @@ function useLightEffects() {
 // =========================================================
 // ENVELOPE INTRO SCREEN
 // =========================================================
-function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
+function EnvelopeIntro({
+  onOpen,
+  guestName,
+}: {
+  onOpen: () => void;
+  guestName: string;
+}) {
   const [phase, setPhase] = useState<"idle" | "opening" | "done">("idle");
 
   const handleTap = () => {
@@ -257,6 +263,21 @@ function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
         >
           Trân trọng kính mời
         </p>
+        {guestName && (
+          <p
+            style={{
+              fontSize: "clamp(18px, 5vw, 26px)",
+              fontFamily: "serif",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#b8956a",
+              marginBottom: 4,
+            }}
+          >
+            {guestName}
+          </p>
+        )}
         <p
           style={{
             fontSize: 11,
@@ -598,7 +619,23 @@ function GiftBoxQR() {
 // =========================================================
 // MAIN APP
 // =========================================================
+// Đọc tên khách từ URL: /huy → "Huy", /?name=trang → "Trang"
+function getGuestNameFromURL(): string {
+  // Ưu tiên query param: ?name=huy
+  const params = new URLSearchParams(window.location.search);
+  const queryName = params.get("name");
+  if (queryName) return decodeURIComponent(queryName).trim();
+
+  // Đọc từ path: /huy hoặc /=huy
+  const path = window.location.pathname
+    .replace(/^\/=?/, "")
+    .replace(/\/$/, "")
+    .trim();
+  return path ? decodeURIComponent(path) : "";
+}
+
 export default function App() {
+  const guestName = getGuestNameFromURL();
   const lightEffects = useLightEffects();
   const petalCount = lightEffects ? 0 : 10;
 
@@ -738,7 +775,10 @@ export default function App() {
       {/* ===== ENVELOPE INTRO — hiện trước, che toàn màn hình ===== */}
       <AnimatePresence>
         {!envelopeOpened && (
-          <EnvelopeIntro onOpen={() => setEnvelopeOpened(true)} />
+          <EnvelopeIntro
+            onOpen={() => setEnvelopeOpened(true)}
+            guestName={guestName}
+          />
         )}
       </AnimatePresence>
 
