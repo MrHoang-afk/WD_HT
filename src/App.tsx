@@ -666,15 +666,17 @@ export default function App() {
   ];
 
   const weddingPhotos = [
-    "https://i.ibb.co/yBGfDkdZ/khung.jpg",
+    "https://i.ibb.co/PZ5vJZLD/LA4A8454.jpg",
     "https://i.ibb.co/hFK0Y64v/LA4A9176.jpg",
     "https://i.ibb.co/chvsqLC2/LA4A9002.jpg",
     "https://i.ibb.co/6R0b26YK/LA4A8953.jpg",
-    "https://i.ibb.co/yBGfDkdZ/khung.jpg",
+    "https://i.ibb.co/PZ5vJZLD/LA4A8454.jpg",
+    "https://i.ibb.co/yFgX0qjT/LA4A8534.jpg",
     "https://i.ibb.co/5gN3g3dg/LA4A8861.jpg",
     "https://i.ibb.co/x8H0RCdd/LA4-A8722-1.jpg",
     "https://i.ibb.co/MkrXxFkq/LA4A7775.jpg",
     "https://i.ibb.co/RG8R4CCH/LA4A7888.jpg",
+    "https://i.ibb.co/vxgW1Vmt/hoang.jpg",
     "https://i.ibb.co/dw9zQYQZ/anh-cuoi-full-quality.jpg",
   ];
 
