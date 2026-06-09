@@ -666,7 +666,7 @@ export default function App() {
   ];
 
   const weddingPhotos = [
-    "https://i.ibb.co/PZ5vJZLD/LA4A8454.jpg",
+    "https://i.ibb.co/h19vFX0S/LA4A9045.jpg",
     "https://i.ibb.co/hFK0Y64v/LA4A9176.jpg",
     "https://i.ibb.co/chvsqLC2/LA4A9002.jpg",
     "https://i.ibb.co/6R0b26YK/LA4A8953.jpg",
