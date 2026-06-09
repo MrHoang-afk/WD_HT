@@ -283,7 +283,7 @@ function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
               letterSpacing: "0.08em",
             }}
           >
-            11 GIỜ 30
+            11 GIỜ 00
           </span>
           <span style={{ color: "#c8b09a", fontSize: 20 }}>|</span>
           <span
@@ -319,6 +319,22 @@ function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
           (Nhằm ngày 06 tháng 06 năm Bính Ngọ)
         </p>
       </m.div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: 12,
+          right: 16,
+          fontSize: 11,
+          color: "#c8b09a",
+          fontStyle: "italic",
+          letterSpacing: "0.08em",
+          opacity: 0.7,
+          pointerEvents: "none",
+        }}
+      >
+        ✨ Design by Hoang
+      </div>
     </m.div>
   );
 }
@@ -450,8 +466,8 @@ function GiftBoxQR() {
 
   return (
     <div className="text-center mb-10">
-      <p className="text-xs text-white/90 italic mb-4">
-        Bấm vào hộp quà để xem thông tin mừng cưới 🎁
+      <p className="text-xl text-white/120 italic mb-4">
+        Quà có thì cũng được mà không có là không được nha 🎁
       </p>
 
       <AnimatePresence mode="wait">
@@ -521,7 +537,7 @@ function GiftBoxQR() {
                 </text>
               </svg>
             </m.div>
-            <span className="text-xs text-pink-200 font-medium tracking-wide">
+            <span className="text-xl text-pink-400 font-medium tracking-wide">
               Hộp quà cưới
             </span>
           </m.div>
@@ -775,7 +791,7 @@ export default function App() {
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
               className="w-full max-w-lg shrink-0 z-20 text-center tracking-wide pt-[2vh] sm:pt-[3vh]"
             >
-              <span className="text-xs uppercase tracking-[0.3em] text-pink-200 block mb-2 font-semibold save-date-pulse">
+              <span className="text-3xlxs uppercase tracking-[0.3em] text-red-600 block mb-2 font-semibold save-date-pulse">
                 Save The Date
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif mb-3 md:mb-4 title-glow px-4 leading-tight">
@@ -851,16 +867,16 @@ export default function App() {
               className="text-center max-w-2xl mx-auto"
             >
               <div className="text-pink-300 text-3xl mb-3">✨</div>
-              <h2 className="text-3xl font-serif mb-6 tracking-wide text-pink-200">
+              <h2 className="text-3xl font-serif mb-6 tracking-wide text-pink-900">
                 Our Story
               </h2>
               <div className="w-12 h-[1px] bg-white/30 mx-auto mb-6" />
               <ShimmerCard className="bg-black/20 p-6 rounded-2xl border border-white/5 shadow-xl">
                 <p className="leading-relaxed text-white/90 text-sm md:text-base px-2">
-                  "Chúng ta đã cùng nhau đi qua nhiều thăng trầm để nhận ra rằng
-                  được ở bên nhau là điều quý giá nhất. Hôm nay, trước sự chứng
-                  kiến của mọi người từ khoảnh khắc này chúng ta sẽ nhẹ nhàng
-                  gọi nhau bằng hai tiếng Vợ - Chồng."
+                  "Sau một hành trình đủ dài để hiểu nhau hơn, Hoàng & Thảo
+                  quyết định về chung một nhà 💛 Chính thức gọi nhau bằng hai
+                  tiếng Vợ – Chồng 💍 Mời bạn đến chung vui và ăn nhậu thật
+                  nhiệt tình cùng tụi mình nha!"
                 </p>
               </ShimmerCard>
             </m.div>
@@ -870,22 +886,14 @@ export default function App() {
                 {
                   side: "Nhà Gái",
                   photo: "https://i.ibb.co/JRJKJ0cF/thao.jpg",
-                  alt: "Cô dâu Nguyễn Thị Thảo",
-                  father: "Nguyễn Văn Lợi",
-                  mother: "Lê Thị Thanh",
-                  address: "Trung Thanh, Phong Dinh, TP.Huế",
-                  rank: "Trưởng nữ",
+                  rank: "Cô dâu",
                   name: "Nguyễn Thị Thảo",
                   delay: 0,
                 },
                 {
                   side: "Nhà Nam",
                   photo: "https://i.ibb.co/tpQ9WjrM/hoang.jpg",
-                  alt: "Chú rể Võ Văn Hoàng",
-                  father: "Võ Văn Tính",
-                  mother: "Trần Thị Hoa",
-                  address: "120 Tân Lập, Kado, Lâm Đồng",
-                  rank: "Thứ nam",
+                  rank: "Chú rể",
                   name: "Võ Văn Hoàng",
                   delay: 0.2,
                 },
@@ -910,19 +918,9 @@ export default function App() {
                     </div>
                     <div className="flex-1 text-center md:text-left space-y-2">
                       <span className="text-xs font-semibold tracking-widest text-pink-300 uppercase block">
-                        ーー {person.side} ーー
+                        ーー {person.label} ーー
                       </span>
-                      <div className="text-sm text-white/80 space-y-0.5 font-medium">
-                        <p>
-                          <b>Ông:</b> {person.father}
-                        </p>
-                        <p>
-                          <b>Bà:</b> {person.mother}
-                        </p>
-                        <p className="text-xs text-white/60 italic font-normal">
-                          {person.address}
-                        </p>
-                      </div>
+
                       <div className="pt-2 border-t border-white/10">
                         <span className="text-xs text-pink-200 block">
                           {person.rank}
@@ -947,11 +945,11 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl font-serif text-center mb-2 text-pink-200"
+              className="text-3xl font-serif text-center mb-2 text-pink-900"
             >
               Wedding Album
             </m.h2>
-            <p className="text-xs text-center text-white/60 mb-8 italic">
+            <p className="text-xs text-center text-white/120 mb-8 italic">
               Bấm vào từng bức ảnh để ngắm nhìn khoảnh khắc của chúng mình
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -1037,7 +1035,7 @@ export default function App() {
                   </m.div>
                   <div className="flex justify-center items-center gap-2 text-white/80">
                     <span>🕣</span>
-                    <span>Vào lúc 11 giờ 30 phút</span>
+                    <span>Vào lúc 11 giờ 00 phút</span>
                   </div>
                   <div className="w-6 h-[1px] bg-white/20 mx-auto my-2" />
                   <div className="font-medium text-white">
@@ -1070,7 +1068,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl font-serif mb-2 text-pink-200"
+              className="text-3xl font-serif mb-2 text-pink-900"
             >
               Xác Nhận Tham Dự
             </m.h2>
@@ -1277,6 +1275,9 @@ export default function App() {
             </m.div>
           )}
         </AnimatePresence>
+      </div>
+      <div className="fixed bottom-2 right-3 z-50 text-[10px] md:text-xs text-white/50 italic tracking-wide pointer-events-none">
+        Design by Hoang
       </div>
     </LazyMotion>
   );
