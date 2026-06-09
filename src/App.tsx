@@ -466,7 +466,7 @@ function GiftBoxQR() {
 
   return (
     <div className="text-center mb-10">
-      <p className="text-xl text-white/120 italic mb-4">
+      <p className="text-xl text-white/80 italic mb-4">
         Quà có thì cũng được mà không có là không được nha 🎁
       </p>
 
@@ -791,7 +791,7 @@ export default function App() {
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
               className="w-full max-w-lg shrink-0 z-20 text-center tracking-wide pt-[2vh] sm:pt-[3vh]"
             >
-              <span className="text-3xlxs uppercase tracking-[0.3em] text-red-600 block mb-2 font-semibold save-date-pulse">
+              <span className="text-xs uppercase tracking-[0.3em] text-red-600 block mb-2 font-semibold save-date-pulse">
                 Save The Date
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif mb-3 md:mb-4 title-glow px-4 leading-tight">
@@ -885,14 +885,18 @@ export default function App() {
               {[
                 {
                   side: "Nhà Gái",
+                  label: "Nhà Gái",
                   photo: "https://i.ibb.co/JRJKJ0cF/thao.jpg",
+                  alt: "Ảnh cô dâu Nguyễn Thị Thảo",
                   rank: "Cô dâu",
                   name: "Nguyễn Thị Thảo",
                   delay: 0,
                 },
                 {
                   side: "Nhà Nam",
+                  label: "Nhà Trai",
                   photo: "https://i.ibb.co/tpQ9WjrM/hoang.jpg",
+                  alt: "Ảnh chú rể Võ Văn Hoàng",
                   rank: "Chú rể",
                   name: "Võ Văn Hoàng",
                   delay: 0.2,
@@ -949,7 +953,7 @@ export default function App() {
             >
               Wedding Album
             </m.h2>
-            <p className="text-xs text-center text-white/120 mb-8 italic">
+            <p className="text-xs text-center text-white/80 mb-8 italic">
               Bấm vào từng bức ảnh để ngắm nhìn khoảnh khắc của chúng mình
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
